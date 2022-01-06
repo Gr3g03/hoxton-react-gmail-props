@@ -1,0 +1,21 @@
+.app {
+  height: 100vh;
+
+  display: grid;
+  grid-template:
+    'header header' 50px
+    'left-menu emails' 1fr /
+    180px 1fr;
+}
+
+
+
+.app > .emails {
+  grid-area: emails;
+  padding: 10px 0;
+}
+
+.app > .emails > ul {
+  list-style: none;
+  display: grid;
+}
