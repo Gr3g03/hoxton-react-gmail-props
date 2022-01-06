@@ -17,15 +17,6 @@ function App() {
   const [currentTab, setCurrentTab] = useState('inbox')
 
 
-  let filteredEmails = emails
-
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails)
-
-  if (currentTab === 'starred')
-    filteredEmails = getStarredEmails(filteredEmails)
-
-
-
   return (
     <div className="app">
 
@@ -38,9 +29,11 @@ function App() {
         hideRead={hideRead}
         setHideRead={setHideRead} />
       <Main
-        filteredEmails={filteredEmails}
         emails={emails}
         setEmails={setEmails}
+        hideRead={hideRead}
+        getReadEmails={getReadEmails}
+        getStarredEmails={getStarredEmails}
       />
 
     </div>
