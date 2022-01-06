@@ -15,19 +15,16 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
-  const [searchTitle, setsearchTitle] = useState('')
-
-
-  let emailsToDisplay = emails
+  const [searchTitle, setsearchTitle] = useState("")
 
 
 
-  console.log(emailsToDisplay)
+  // console.log(emailsToDisplay)
   return (
     <div className="app">
 
       <Header
-        emailsToDisplay={emailsToDisplay}
+        emails={emails}
         searchTitle={searchTitle}
         setsearchTitle={setsearchTitle}
       />
@@ -45,8 +42,9 @@ function App() {
         getReadEmails={getReadEmails}
         getStarredEmails={getStarredEmails}
       />
-
     </div>
+
+
   )
 }
 

@@ -4,12 +4,18 @@ import Search from './Search'
 
 export default function Header(props) {
 
-    if (props.searchTitle)
-        props.emailsToDisplay = props.emailsToDisplay.filter(function (email) {
-            email.title.toLocaleLowerCase().includes(props.searchTitle.toLocaleLowerCase())
+    let emailsToDisplay = props.emails
+    emailsToDisplay.filter(post => {
+        if (props.searchTitle === "") {
+            return post.title;
+        } else if (post.title.toLowerCase().includes(props.searchTitle.toLowerCase())) {
+            return post.title;
+        }
+    });
 
-            props.setsearchTitle(props.emailsToDisplay)
-        })
+
+
+
 
     return (
 
@@ -26,6 +32,8 @@ export default function Header(props) {
             </div>
             <Search
                 emailsToDisplay={props.emailsToDisplay}
+                setsearchTitle={props.setsearchTitle}
+
             />
         </header>
     )
