@@ -20,18 +20,17 @@ function App() {
 
   let emailsToDisplay = emails
 
-  if (searchTitle)
-    emailsToDisplay = emailsToDisplay.filter(function (email) {
-      email.title.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase())
 
-      setsearchTitle(emailsToDisplay)
-    })
 
   console.log(emailsToDisplay)
   return (
     <div className="app">
 
-      <Header />
+      <Header
+        emailsToDisplay={emailsToDisplay}
+        searchTitle={searchTitle}
+        setsearchTitle={setsearchTitle}
+      />
 
       <LeftNav
         emails={emails}

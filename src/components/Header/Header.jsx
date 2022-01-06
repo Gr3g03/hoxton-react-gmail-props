@@ -1,7 +1,18 @@
 import './Header.css'
 import Search from './Search'
-export default function Header() {
+
+
+export default function Header(props) {
+
+    if (props.searchTitle)
+        props.emailsToDisplay = props.emailsToDisplay.filter(function (email) {
+            email.title.toLocaleLowerCase().includes(props.searchTitle.toLocaleLowerCase())
+
+            props.setsearchTitle(props.emailsToDisplay)
+        })
+
     return (
+
         <header className="header">
             <div className="left-menu">
                 <svg className="menu-icon" focusable="false" viewBox="0 0 24 24">
@@ -13,7 +24,9 @@ export default function Header() {
                     alt="gmail logo"
                 />
             </div>
-            <Search />
+            <Search
+                emailsToDisplay={props.emailsToDisplay}
+            />
         </header>
     )
 }
