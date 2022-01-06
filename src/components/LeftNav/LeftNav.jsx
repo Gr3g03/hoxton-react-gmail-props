@@ -2,7 +2,8 @@
 import './LeftNav.css'
 export default function LeftNav(props) {
 
-
+    const unreadEmails = props.emails.filter(email => !email.read)
+    const starredEmails = props.emails.filter(email => email.starred)
     return (
         <nav className="left-menu">
             <ul className="inbox-list">
@@ -11,14 +12,14 @@ export default function LeftNav(props) {
                     onClick={() => props.setCurrentTab('inbox')}
                 >
                     <span className="label">Inbox</span>
-                    <span className="count">{props.unreadEmails.length}</span>
+                    <span className="count">{unreadEmails.length}</span>
                 </li>
                 <li
                     className={`item ${props.currentTab === 'starred' ? 'active' : ''}`}
                     onClick={() => props.setCurrentTab('starred')}
                 >
                     <span className="label">Starred</span>
-                    <span className="count">{props.starredEmails.length}</span>
+                    <span className="count">{starredEmails.length}</span>
                 </li>
 
                 <li className="item toggle">

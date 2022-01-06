@@ -1,4 +1,5 @@
 import './Header.css'
+import Search from './Search'
 export default function Header() {
     return (
         <header className="header">
@@ -12,10 +13,7 @@ export default function Header() {
                     alt="gmail logo"
                 />
             </div>
-
-            <div className="search">
-                <input className="search-bar" placeholder="Search mail" />
-            </div>
+            <Search />
         </header>
     )
 }
