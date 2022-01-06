@@ -15,8 +15,19 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [searchTitle, setsearchTitle] = useState('')
 
 
+  let emailsToDisplay = emails
+
+  if (searchTitle)
+    emailsToDisplay = emailsToDisplay.filter(function (email) {
+      email.title.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase())
+
+      setsearchTitle(emailsToDisplay)
+    })
+
+  console.log(emailsToDisplay)
   return (
     <div className="app">
 

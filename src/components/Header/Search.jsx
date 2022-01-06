@@ -1,4 +1,7 @@
 export default function Search() {
+
+    // let emailsToDisplay = [...emails]
+
     return (
 
         <div className="search">
